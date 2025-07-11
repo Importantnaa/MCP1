@@ -1,38 +1,14 @@
 {
-  "agent": "ItineraryAgent",
-  "goal": "Assemble a human-readable, prayer-friendly travel schedule",
+  "agent": "PlannerAgent",
+  "goal": "Break down user trip request into structured subtasks",
   "input": {
-    "flights": [
-      {
-        "airline": "Saudia",
-        "depart": "2025-12-10T09:00",
-        "return": "2025-12-15T20:00"
-      }
-    ],
-    "hotels": [
-      {
-        "name": "Hilton Makkah",
-        "check_in": "2025-12-10",
-        "check_out": "2025-12-15"
-      }
-    ],
-    "restaurants": [
-      {
-        "name": "Al Baik",
-        "meal_type": "Dinner",
-        "location": "300m from hotel"
-      }
-    ],
-    "planner_context": {
-      "location": "Makkah",
-      "dates": {
-        "start": "2025-12-10",
-        "end": "2025-12-15"
-      },
-      "budget": "low"
-    }
+    "user_goal": "Plan Umrah trip in December for 2 adults, budget-friendly"
   },
   "output": {
-    "itinerary": "🕋 Dec 10 - Arrival in Makkah\n- Check-in: Hilton Makkah\n- Dinner at Al Baik\n📅 Dec 11 - Fajr at Haram, breakfast nearby..."
+    "subtasks": ["find flights", "book hotel near Haram", "suggest halal food", "build prayer-friendly itinerary"],
+    "location": "Makkah",
+    "dates": "Dec 10–15",
+    "travelers": 2,
+    "budget": "low"
   }
 }

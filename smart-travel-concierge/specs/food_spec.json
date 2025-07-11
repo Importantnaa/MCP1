@@ -1,20 +1,19 @@
 {
-  "agent": "FlightAgent",
-  "goal": "Find 2–3 suitable flights based on location and dates",
+  "agent": "FoodAgent",
+  "goal": "List 3–5 halal food options in the trip area by meal type",
   "input": {
-    "origin": "JFK",
-    "destination": "JED",
-    "depart_date": "2025-12-10",
-    "return_date": "2025-12-15"
+    "location": "Makkah",
+    "meal_type": "dinner",
+    "dietary_preferences": ["halal"]
   },
   "output": {
-    "flights": [
+    "restaurants": [
       {
-        "airline": "Saudia",
-        "price": "$430",
-        "depart": "Dec 10, 9:00 AM",
-        "return": "Dec 15, 8:00 PM",
-        "duration": "13h"
+        "name": "Al Baik",
+        "type": "Fast Food",
+        "rating": "4.7",
+        "distance": "300m",
+        "price": "$"
       }
     ]
   }

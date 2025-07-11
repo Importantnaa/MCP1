@@ -1,14 +1,21 @@
 {
-  "agent": "PlannerAgent",
-  "goal": "Break down user trip request into structured subtasks",
+  "agent": "FlightAgent",
+  "goal": "Find 2–3 suitable flights based on location and dates",
   "input": {
-    "user_goal": "Plan Umrah trip in December for 2 adults, budget-friendly"
+    "origin": "JFK",
+    "destination": "JED",
+    "depart_date": "2025-12-10",
+    "return_date": "2025-12-15"
   },
   "output": {
-    "subtasks": ["find flights", "book hotel near Haram", "suggest halal food", "build prayer-friendly itinerary"],
-    "location": "Makkah",
-    "dates": "Dec 10–15",
-    "travelers": 2,
-    "budget": "low"
+    "flights": [
+      {
+        "airline": "Saudia",
+        "price": "$430",
+        "depart": "Dec 10, 9:00 AM",
+        "return": "Dec 15, 8:00 PM",
+        "duration": "13h"
+      }
+    ]
   }
 }
