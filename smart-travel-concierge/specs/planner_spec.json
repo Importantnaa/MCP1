@@ -5,10 +5,24 @@
     "user_goal": "Plan Umrah trip in December for 2 adults, budget-friendly"
   },
   "output": {
-    "subtasks": ["find flights", "book hotel near Haram", "suggest halal food", "build prayer-friendly itinerary"],
-    "location": "Makkah",
-    "dates": "Dec 10–15",
-    "travelers": 2,
-    "budget": "low"
+    "subtasks": [
+      "Find budget round-trip flights to Jeddah (JED)",
+      "Book hotel near Masjid al-Haram in Makkah",
+      "Suggest affordable halal food options nearby",
+      "Build daily prayer-friendly and rest-optimized itinerary"
+    ],
+    "location": "Makkah, Saudi Arabia",
+    "dates": {
+      "start": "2025-12-10",
+      "end": "2025-12-15"
+    },
+    "travelers": {
+      "adults": 2,
+      "children": 0
+    },
+    "budget": {
+      "level": "low",
+      "estimated_total_usd": 2500
+    }
   }
 }
