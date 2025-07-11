@@ -1,0 +1,20 @@
+{
+  "agent": "FoodAgent",
+  "goal": "List 3–5 halal food options in the trip area by meal type",
+  "input": {
+    "location": "Makkah",
+    "meal_type": "dinner",
+    "dietary_preferences": ["halal"]
+  },
+  "output": {
+    "restaurants": [
+      {
+        "name": "Al Baik",
+        "type": "Fast Food",
+        "rating": "4.7",
+        "distance": "300m",
+        "price": "$"
+      }
+    ]
+  }
+}

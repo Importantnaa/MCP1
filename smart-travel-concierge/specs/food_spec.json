@@ -1,0 +1,21 @@
+{
+  "agent": "FlightAgent",
+  "goal": "Find 2–3 suitable flights based on location and dates",
+  "input": {
+    "origin": "JFK",
+    "destination": "JED",
+    "depart_date": "2025-12-10",
+    "return_date": "2025-12-15"
+  },
+  "output": {
+    "flights": [
+      {
+        "airline": "Saudia",
+        "price": "$430",
+        "depart": "Dec 10, 9:00 AM",
+        "return": "Dec 15, 8:00 PM",
+        "duration": "13h"
+      }
+    ]
+  }
+}

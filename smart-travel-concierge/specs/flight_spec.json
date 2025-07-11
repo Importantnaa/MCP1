@@ -1,0 +1,14 @@
+{
+  "agent": "PlannerAgent",
+  "goal": "Break down user trip request into structured subtasks",
+  "input": {
+    "user_goal": "Plan Umrah trip in December for 2 adults, budget-friendly"
+  },
+  "output": {
+    "subtasks": ["find flights", "book hotel near Haram", "suggest halal food", "build prayer-friendly itinerary"],
+    "location": "Makkah",
+    "dates": "Dec 10–15",
+    "travelers": 2,
+    "budget": "low"
+  }
+}

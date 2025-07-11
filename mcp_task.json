@@ -1,0 +1,13 @@
+{
+  "user_goal": "Plan Umrah trip in December for 2 adults, 5 days, budget-friendly",
+  "location": "Makkah",
+  "dates": {
+    "start": "2025-12-10",
+    "end": "2025-12-15"
+  },
+  "travelers": 2,
+  "budget": "low",
+  "current_agent": "PlannerAgent",
+  "subtasks": [],
+  "memory": {}
+}

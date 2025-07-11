@@ -1,0 +1,19 @@
+{
+  "agent": "HotelAgent",
+  "goal": "Suggest 2–3 hotels near Kaaba within the budget range",
+  "input": {
+    "location": "Makkah",
+    "dates": "Dec 10–15",
+    "budget": "low"
+  },
+  "output": {
+    "hotels": [
+      {
+        "name": "Hilton Makkah",
+        "price_per_night": "$120",
+        "distance_to_kaaba": "200m",
+        "rating": "4.6"
+      }
+    ]
+  }
+}
