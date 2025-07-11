@@ -1,9 +1,10 @@
 {
   "agent": "FoodAgent",
-  "goal": "List 3–5 halal food options in the trip area by meal type",
+  "goal": "List 3–5 halal dinner options in Makkah",
   "input": {
     "location": "Makkah",
     "meal_type": "dinner",
+    "depart_date": "2025-12-10",
     "dietary_preferences": ["halal"]
   },
   "output": {
@@ -14,6 +15,34 @@
         "rating": "4.7",
         "distance": "300m",
         "price": "$"
+      },
+      {
+        "name": "The Oasis Restaurant",
+        "type": "Middle Eastern Buffet",
+        "rating": "4.5",
+        "distance": "500m",
+        "price": "$$"
+      },
+      {
+        "name": "Al Tazaj",
+        "type": "Grilled Chicken Restaurant",
+        "rating": "4.3",
+        "distance": "650m",
+        "price": "$"
+      },
+      {
+        "name": "Hyatt Regency Tea Lounge",
+        "type": "International",
+        "rating": "4.6",
+        "distance": "700m",
+        "price": "$$$"
+      },
+      {
+        "name": "Al Dana Restaurant",
+        "type": "Saudi Cuisine",
+        "rating": "4.4",
+        "distance": "400m",
+        "price": "$$"
       }
     ]
   }
