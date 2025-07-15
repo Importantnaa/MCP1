@@ -51,17 +51,28 @@ def run_memory_agent(task_state):
     }
 
 
+from smart_travel_concierge.agents.hotel_agent import get_mock_hotels
+
 def run_hotel_agent(task_state):
-    with open(f"{BASE_PATH}/hotel_spec.json") as f:
-        return json.load(f)["output"]
+    context = task_state["memory"].get("PlannerAgent", {})
+    location = context.get("location", "Makkah")
+    dates = context.get("dates", {})
+    budget = context.get("budget", {}).get("level", "low")
+
+    checkin = dates.get("start", "2025-12-10")
+    checkout = dates.get("end", "2025-12-15")
+
+    return get_mock_hotels(location, checkin, checkout, budget)
+
 
 def run_food_agent(task_state):
     with open(f"{BASE_PATH}/food_spec.json") as f:
         return json.load(f)["output"]
-
+    
 def run_itinerary_agent(task_state):
     with open(f"{BASE_PATH}/itinerary_spec.json") as f:
         return json.load(f)["output"]
+
 
 # --- Map agent names to functions ---
 AGENT_FUNCTIONS = {
