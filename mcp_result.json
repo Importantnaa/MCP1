@@ -43,7 +43,29 @@
       }
     },
     "FlightAgent": {
-      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/flight_spec.json'"
+      "flights": [
+        {
+          "airline": "Saudia",
+          "price": 420,
+          "depart": "2025-12-10",
+          "return": "2025-12-15",
+          "duration": "12h 30m"
+        },
+        {
+          "airline": "Emirates",
+          "price": 450,
+          "depart": "2025-12-10",
+          "return": "2025-12-15",
+          "duration": "13h"
+        },
+        {
+          "airline": "Qatar Airways",
+          "price": 480,
+          "depart": "2025-12-10",
+          "return": "2025-12-15",
+          "duration": "11h 50m"
+        }
+      ]
     },
     "HotelAgent": {
       "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/hotel_spec.json'"

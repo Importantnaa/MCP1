@@ -5,6 +5,8 @@ import logging
 from pathlib import Path
 from smart_travel_concierge.agents.memory_agent import store_memory, get_memory
 from smart_travel_concierge.agents.planner_agent import PlannerAgent
+from smart_travel_concierge.agents.flight_agent import get_mock_flights
+
 
 
 # --- Configure logging ---
@@ -32,8 +34,11 @@ def run_planner_agent(task_state):
     return result["output"]
 
 def run_flight_agent(task_state):
-    with open(f"{BASE_PATH}/flight_spec.json") as f:
-        return json.load(f)["output"]
+    planner_output = task_state["memory"].get("PlannerAgent", {})
+    origin = "JFK"  # You can later make this dynamic
+    destination = "JED"
+    dates = planner_output.get("dates", {})
+    return get_mock_flights(origin, destination, dates.get("start"), dates.get("end"))
 
 def run_memory_agent(task_state):
     store_memory("preferred_airline", "Saudia")
