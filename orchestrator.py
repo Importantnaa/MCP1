@@ -6,6 +6,7 @@ from pathlib import Path
 from smart_travel_concierge.agents.memory_agent import store_memory, get_memory
 from smart_travel_concierge.agents.planner_agent import PlannerAgent
 from smart_travel_concierge.agents.flight_agent import get_mock_flights
+from smart_travel_concierge.agents.food_agent import run_food_agent
 
 
 
