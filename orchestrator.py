@@ -9,27 +9,31 @@ logging.basicConfig(filename='orchestrator.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# --- Simulated agent logic (replace with actual API calls later) ---
+# --- Base path for agent spec files ---
+BASE_PATH = "smart-travel-concierge/specs"
+
+# --- Simulated agent logic (reads from spec output files) ---
 def run_planner_agent(task_state):
-    with open("planner_spec.json") as f:
+    with open(f"{BASE_PATH}/planner_spec.json") as f:
         return json.load(f)["output"]
 
 def run_flight_agent(task_state):
-    with open("flight_spec.json") as f:
+    with open(f"{BASE_PATH}/flight_spec.json") as f:
         return json.load(f)["output"]
 
 def run_hotel_agent(task_state):
-    with open("hotel_spec.json") as f:
+    with open(f"{BASE_PATH}/hotel_spec.json") as f:
         return json.load(f)["output"]
 
 def run_food_agent(task_state):
-    with open("food_spec.json") as f:
+    with open(f"{BASE_PATH}/food_spec.json") as f:
         return json.load(f)["output"]
 
 def run_itinerary_agent(task_state):
-    with open("itinerary_spec.json") as f:
+    with open(f"{BASE_PATH}/itinerary_spec.json") as f:
         return json.load(f)["output"]
 
+# --- Map agent names to functions ---
 AGENT_FUNCTIONS = {
     "PlannerAgent": run_planner_agent,
     "FlightAgent": run_flight_agent,
@@ -40,7 +44,7 @@ AGENT_FUNCTIONS = {
 
 AGENT_SEQUENCE = list(AGENT_FUNCTIONS.keys())
 
-# --- Agent Runner ---
+# --- Run single agent step ---
 def run_agent_step(task_state, retries=2):
     current_agent = task_state["current_agent"]
     logging.info(f"🧠 Running {current_agent}")
@@ -54,7 +58,7 @@ def run_agent_step(task_state, retries=2):
         try:
             output = agent_fn(task_state)
 
-            # Validate expected keys (very basic validation)
+            # Validate output format
             if not isinstance(output, dict):
                 raise ValueError("Agent output must be a dictionary.")
 
@@ -71,6 +75,7 @@ def run_agent_step(task_state, retries=2):
     return advance_agent(task_state)
 
 
+# --- Move to next agent ---
 def advance_agent(task_state):
     try:
         idx = AGENT_SEQUENCE.index(task_state["current_agent"])
@@ -82,6 +87,7 @@ def advance_agent(task_state):
     return task_state
 
 
+# --- Main orchestrator run ---
 def main():
     try:
         with open("mcp_task.json") as f:

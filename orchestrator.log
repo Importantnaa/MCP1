@@ -1,0 +1,13 @@
+2025-07-14 22:37:56,260 - INFO - \U0001f680 MCP orchestration started.
+2025-07-14 22:37:56,261 - INFO - \U0001f9e0 Running PlannerAgent
+2025-07-14 22:37:56,262 - INFO - \u2705 PlannerAgent success on attempt 1
+2025-07-14 22:37:56,262 - INFO - \U0001f9e0 Running FlightAgent
+2025-07-14 22:37:56,263 - INFO - \u2705 FlightAgent success on attempt 1
+2025-07-14 22:37:56,263 - INFO - \U0001f9e0 Running HotelAgent
+2025-07-14 22:37:56,263 - INFO - \u2705 HotelAgent success on attempt 1
+2025-07-14 22:37:56,265 - INFO - \U0001f9e0 Running FoodAgent
+2025-07-14 22:37:56,265 - INFO - \u2705 FoodAgent success on attempt 1
+2025-07-14 22:37:56,267 - INFO - \U0001f9e0 Running ItineraryAgent
+2025-07-14 22:37:56,267 - INFO - \u2705 ItineraryAgent success on attempt 1
+2025-07-14 22:37:56,267 - INFO - \U0001f389 All agents executed successfully.
+2025-07-14 22:37:56,273 - INFO - \u2705 Final task state written to mcp_result.json
