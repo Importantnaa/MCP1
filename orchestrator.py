@@ -3,6 +3,8 @@
 import json
 import logging
 from pathlib import Path
+from smart_travel_concierge.agents.memory_agent import store_memory, get_memory
+
 
 # --- Configure logging ---
 logging.basicConfig(filename='orchestrator.log', level=logging.INFO,
@@ -20,6 +22,16 @@ def run_planner_agent(task_state):
 def run_flight_agent(task_state):
     with open(f"{BASE_PATH}/flight_spec.json") as f:
         return json.load(f)["output"]
+
+def run_memory_agent(task_state):
+    store_memory("preferred_airline", "Saudia")
+    store_memory("preferred_food", "halal")
+    store_memory("budget_level", "low")
+    
+    return {
+        "stored_keys": ["preferred_airline", "preferred_food", "budget_level"]
+    }
+
 
 def run_hotel_agent(task_state):
     with open(f"{BASE_PATH}/hotel_spec.json") as f:
@@ -39,7 +51,8 @@ AGENT_FUNCTIONS = {
     "FlightAgent": run_flight_agent,
     "HotelAgent": run_hotel_agent,
     "FoodAgent": run_food_agent,
-    "ItineraryAgent": run_itinerary_agent
+    "ItineraryAgent": run_itinerary_agent,
+    "MemoryAgent": run_memory_agent
 }
 
 AGENT_SEQUENCE = list(AGENT_FUNCTIONS.keys())

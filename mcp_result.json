@@ -11,99 +11,26 @@
   "subtasks": [],
   "memory": {
     "PlannerAgent": {
-      "subtasks": [
-        "Find budget round-trip flights to Jeddah (JED)",
-        "Book hotel near Masjid al-Haram in Makkah",
-        "Suggest affordable halal food options nearby",
-        "Build daily prayer-friendly and rest-optimized itinerary"
-      ],
-      "location": "Makkah, Saudi Arabia",
-      "dates": {
-        "start": "2025-12-10",
-        "end": "2025-12-15"
-      },
-      "travelers": {
-        "adults": 2,
-        "children": 0
-      },
-      "budget": {
-        "level": "low",
-        "estimated_total_usd": 2500
-      }
+      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/planner_spec.json'"
     },
     "FlightAgent": {
-      "flights": [
-        {
-          "airline": "Saudia (non-stop)",
-          "price": 962,
-          "depart": {
-            "date": "2025-12-10",
-            "origin": "JFK",
-            "destination": "JED",
-            "duration": "11h 35m",
-            "non_stop": true
-          },
-          "return": {
-            "date": "2025-12-15",
-            "origin": "JED",
-            "destination": "JFK",
-            "duration": "11h 35m",
-            "non_stop": true
-          }
-        }
-      ]
+      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/flight_spec.json'"
     },
     "HotelAgent": {
-      "hotels": [
-        {
-          "name": "Hilton Makkah",
-          "price_per_night": "$120",
-          "distance_to_kaaba": "200m",
-          "rating": "4.6"
-        }
-      ]
+      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/hotel_spec.json'"
     },
     "FoodAgent": {
-      "restaurants": [
-        {
-          "name": "Al Baik",
-          "type": "Fast Food",
-          "rating": "4.7",
-          "distance": "300m",
-          "price": "$"
-        },
-        {
-          "name": "The Oasis Restaurant",
-          "type": "Middle Eastern Buffet",
-          "rating": "4.5",
-          "distance": "500m",
-          "price": "$$"
-        },
-        {
-          "name": "Al Tazaj",
-          "type": "Grilled Chicken Restaurant",
-          "rating": "4.3",
-          "distance": "650m",
-          "price": "$"
-        },
-        {
-          "name": "Hyatt Regency Tea Lounge",
-          "type": "International",
-          "rating": "4.6",
-          "distance": "700m",
-          "price": "$$$"
-        },
-        {
-          "name": "Al Dana Restaurant",
-          "type": "Saudi Cuisine",
-          "rating": "4.4",
-          "distance": "400m",
-          "price": "$$"
-        }
-      ]
+      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/food_spec.json'"
     },
     "ItineraryAgent": {
-      "itinerary": "\u00f0\u0178\u2022\u2039 Dec 10 - Arrival in Makkah\n- Check-in: Hilton Makkah\n- Dinner at Al Baik\n\u00f0\u0178\u201c\u2026 Dec 11 - Fajr at Haram, breakfast nearby..."
+      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/itinerary_spec.json'"
+    },
+    "MemoryAgent": {
+      "stored_keys": [
+        "preferred_airline",
+        "preferred_food",
+        "budget_level"
+      ]
     }
   }
 }
