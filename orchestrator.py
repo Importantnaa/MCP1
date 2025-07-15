@@ -4,6 +4,7 @@ import json
 import logging
 from pathlib import Path
 from smart_travel_concierge.agents.memory_agent import store_memory, get_memory
+from smart_travel_concierge.agents.planner_agent import PlannerAgent
 
 
 # --- Configure logging ---
@@ -16,8 +17,19 @@ BASE_PATH = "smart-travel-concierge/specs"
 
 # --- Simulated agent logic (reads from spec output files) ---
 def run_planner_agent(task_state):
-    with open(f"{BASE_PATH}/planner_spec.json") as f:
-        return json.load(f)["output"]
+    user_goal = task_state.get("user_goal", "")
+    agent = PlannerAgent(user_goal)
+    result = agent.get_output()
+
+    # Update task_state with structured info from PlannerAgent
+    task_state["memory"]["PlannerAgent"] = result["output"]
+    task_state["subtasks"] = result["output"]["subtasks"]
+    task_state["location"] = result["output"]["location"]
+    task_state["dates"] = result["output"]["dates"]
+    task_state["travelers"] = result["output"]["travelers"]
+    task_state["budget"] = result["output"]["budget"]
+
+    return result["output"]
 
 def run_flight_agent(task_state):
     with open(f"{BASE_PATH}/flight_spec.json") as f:
