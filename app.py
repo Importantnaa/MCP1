@@ -117,30 +117,27 @@ if result:
             st.markdown(f"[🗺 View on Google Maps]({maps_link})")
             st.markdown("---")
 
-    # Tab 4: Restaurants with static images + maps link
     with tab4:
         st.subheader("🍽️ Restaurant Options")
         restaurants = memory.get("FoodAgent", {}).get("restaurants", [])
         restaurant_images = {
-            "Al Baik":             "https://images.unsplash.com/photo-1579273166201-2104ec3a9914",
-            "The Oasis Restaurant":"https://images.unsplash.com/photo-1604908177522-22bc4ded99ae",
-            "Al Tazaj":            "https://images.unsplash.com/photo-1601312379366-e7de849145dc"
+            "Al Baik": "https://images.unsplash.com/photo-1598514982846-d83a6b6f58e9",
+            "The Oasis Restaurant": "https://images.unsplash.com/photo-1613145991743-9ba7f1e74900",
+            "Al Tazaj": "https://images.unsplash.com/photo-1617191516005-1c165f979ed2"
         }
         for r in restaurants:
             img = restaurant_images.get(
                 r["name"],
-                "https://images.unsplash.com/photo-1562967916-eb82221dfb44"
+                "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
             )
-            maps_link = (
-                "https://www.google.com/maps/search/?api=1&query="
-                + r["name"].replace(" ", "+") + "+Makkah"
-            )
+            maps_link = f"https://www.google.com/maps/search/?api=1&query={r['name'].replace(' ', '+')}+Makkah"
             st.image(img, width=600, caption=r["name"])
             st.markdown(f"- **Type**: {r['type']}")
             st.markdown(f"- **Distance**: {r['distance']}")
             st.markdown(f"- **Rating**: {r['rating']} ⭐️")
             st.markdown(f"[🗺 View on Google Maps]({maps_link})")
             st.markdown("---")
+
 
     # Tab 5: Daily Itinerary
     with tab5:
