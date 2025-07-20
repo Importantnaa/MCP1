@@ -12,7 +12,7 @@ def load_json(file_path: Path):
             return json.load(f)
     return {}
 
-# --- Streamlit page config and styling ---
+# --- Streamlit page config & styling ---
 st.set_page_config(page_title="Smart Travel Concierge", layout="wide", page_icon="🌍")
 st.markdown("""
     <style>
@@ -66,13 +66,13 @@ with st.sidebar:
             json.dump(memory, f, indent=2)
         st.success("Preferences saved!")
 
-# --- Load output from your orchestrator ---
+# --- Load orchestrator output ---
 result = load_json(RESULT_PATH)
 
 if result:
     memory = result.get("memory", {})
 
-    # --- Create tabs ---
+    # --- Tabs for sections ---
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "📋 Overview", "🛫 Flights", "🏨 Hotels", "🍽️ Food", "📅 Itinerary"
     ])
@@ -92,48 +92,57 @@ if result:
                 f"Depart: {f['depart']} — Return: {f['return']}"
             )
 
-    # Tab 3: Hotels with images + maps link
+    # Tab 3: Hotels with static images + maps link
     with tab3:
         st.subheader("🏨 Hotel Options")
         hotels = memory.get("HotelAgent", {}).get("hotels", [])
-        # Static image URLs keyed by hotel name
         hotel_images = {
             "Hilton Makkah":    "https://images.unsplash.com/photo-1558959357-685f9c7ace7b",
             "Swissotel Makkah": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
             "Al Safwah Hotel":  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
         }
         for h in hotels:
-            img_url = hotel_images.get(h["name"], list(hotel_images.values())[0])
+            img = hotel_images.get(
+                h["name"],
+                "https://images.unsplash.com/photo-1558959357-685f9c7ace7b"
+            )
             maps_link = (
                 "https://www.google.com/maps/search/?api=1&query="
                 + h["name"].replace(" ", "+") + "+Makkah"
             )
-            st.image(img_url, width=600, caption=h["name"])
+            st.image(img, width=600, caption=h["name"])
             st.markdown(f"- **Price**: ${h['price_per_night']}")
             st.markdown(f"- **Distance to Kaaba**: {h['distance_to_kaaba']}")
             st.markdown(f"- **Rating**: {h['rating']} ⭐️")
             st.markdown(f"[🗺 View on Google Maps]({maps_link})")
             st.markdown("---")
 
-    # Tab 4: Restaurants with images + maps link
+    # Tab 4: Restaurants with static images + maps link
     with tab4:
         st.subheader("🍽️ Restaurant Options")
         restaurants = memory.get("FoodAgent", {}).get("restaurants", [])
-        # One static demo image for all halal food
-        food_img = "https://images.unsplash.com/photo-1562967916-eb82221dfb44"
+        restaurant_images = {
+            "Al Baik":             "https://images.unsplash.com/photo-1579273166201-2104ec3a9914",
+            "The Oasis Restaurant":"https://images.unsplash.com/photo-1604908177522-22bc4ded99ae",
+            "Al Tazaj":            "https://images.unsplash.com/photo-1601312379366-e7de849145dc"
+        }
         for r in restaurants:
+            img = restaurant_images.get(
+                r["name"],
+                "https://images.unsplash.com/photo-1562967916-eb82221dfb44"
+            )
             maps_link = (
                 "https://www.google.com/maps/search/?api=1&query="
                 + r["name"].replace(" ", "+") + "+Makkah"
             )
-            st.image(food_img, width=600, caption=r["name"])
+            st.image(img, width=600, caption=r["name"])
             st.markdown(f"- **Type**: {r['type']}")
             st.markdown(f"- **Distance**: {r['distance']}")
             st.markdown(f"- **Rating**: {r['rating']} ⭐️")
             st.markdown(f"[🗺 View on Google Maps]({maps_link})")
             st.markdown("---")
 
-    # Tab 5: Day-by-day Itinerary
+    # Tab 5: Daily Itinerary
     with tab5:
         st.subheader("📅 Daily Itinerary")
         itinerary = memory.get("ItineraryAgent", {})
