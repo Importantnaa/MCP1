@@ -68,13 +68,68 @@
       ]
     },
     "HotelAgent": {
-      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/hotel_spec.json'"
+      "hotels": [
+        {
+          "name": "Al Safwah Hotel",
+          "price_per_night": 90,
+          "distance_to_kaaba": "180m",
+          "rating": 4.4
+        },
+        {
+          "name": "Swissotel Makkah",
+          "price_per_night": 100,
+          "distance_to_kaaba": "250m",
+          "rating": 4.5
+        },
+        {
+          "name": "Hilton Makkah",
+          "price_per_night": 120,
+          "distance_to_kaaba": "200m",
+          "rating": 4.6
+        }
+      ]
     },
     "FoodAgent": {
-      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/food_spec.json'"
+      "restaurants": [
+        {
+          "name": "Al Baik",
+          "type": "Fast Food",
+          "rating": "4.7",
+          "distance": "300m",
+          "price": "$"
+        },
+        {
+          "name": "The Oasis Restaurant",
+          "type": "Middle Eastern Buffet",
+          "rating": "4.5",
+          "distance": "500m",
+          "price": "$$"
+        },
+        {
+          "name": "Al Tazaj",
+          "type": "Grilled Chicken Restaurant",
+          "rating": "4.3",
+          "distance": "650m",
+          "price": "$"
+        },
+        {
+          "name": "Hyatt Regency Tea Lounge",
+          "type": "International",
+          "rating": "4.6",
+          "distance": "700m",
+          "price": "$$$"
+        },
+        {
+          "name": "Al Dana Restaurant",
+          "type": "Saudi Cuisine",
+          "rating": "4.4",
+          "distance": "400m",
+          "price": "$$"
+        }
+      ]
     },
     "ItineraryAgent": {
-      "error": "[Errno 2] No such file or directory: 'smart-travel-concierge/specs/itinerary_spec.json'"
+      "itinerary": "\u00f0\u0178\u2022\u2039 Dec 10 - Arrival in Makkah\n- Check-in: Hilton Makkah\n- Dinner at Al Baik\n\u00f0\u0178\u201c\u2026 Dec 11 - Fajr at Haram, breakfast nearby..."
     },
     "MemoryAgent": {
       "stored_keys": [
