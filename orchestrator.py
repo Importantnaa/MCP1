@@ -16,7 +16,7 @@ logging.basicConfig(filename='orchestrator.log', level=logging.INFO,
 
 
 # --- Base path for agent spec files ---
-BASE_PATH = "smart-travel-concierge/specs"
+BASE_PATH = "smart_travel_concierge/specs"
 
 # --- Simulated agent logic (reads from spec output files) ---
 def run_planner_agent(task_state):
